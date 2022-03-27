@@ -15,5 +15,6 @@ This repository shows how to port a FreeRTOS kernel to a dsPIC33F microcontrolle
 ## Instructions
 1. Download FreeRTOS kernel source and example
 1. Create new MPLAB X project
-1. Copy necessary files to MPLAB X project folder
+1. Copy necessary files to project folder
 1. Modify FreeRTOSConfig.h
+1. Build project
