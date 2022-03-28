@@ -3,6 +3,7 @@ Porting instructions of FreeRTOS for dsPIC33F family
 
 ## Overview
 This repository shows how to port a FreeRTOS kernel to a dsPIC33F microcontroller.
+In these instructions, we focus on a dsPIC33FJ128MC804.
 
 ## Environment
 | Item | Version |
@@ -32,6 +33,27 @@ Copy following files:
 - FreeRTOS-Kernel-main\tasks.c
 - FreeRTOS-Kernel-main\timers.c
 - FreeRTOS-main\FreeRTOS\Demo\dsPIC_MPLAB\FreeRTOSConfig.h
-### Modify FreeRTOSConfig.h
 
+Destinations are as follows:
+- project_root\FreeRTOS-Kernel\portable\MPLAB\PIC24_dsPIC\port.c
+- project_root\FreeRTOS-Kernel\portable\MPLAB\PIC24_dsPIC\portasm_dsPIC.S
+- project_root\FreeRTOS-Kernel\portable\MPLAB\PIC24_dsPIC\portmacro.h
+- project_root\FreeRTOS-Kernel\portable\MemMang\heap_1.c
+- project_root\FreeRTOS-Kernel\include\\*.h
+- project_root\FreeRTOS-Kernel\croutine.c
+- project_root\FreeRTOS-Kernel\event_groups.c
+- project_root\FreeRTOS-Kernel\list.c
+- project_root\FreeRTOS-Kernel\queue.c
+- project_root\FreeRTOS-Kernel\tasks.c
+- project_root\FreeRTOS-Kernel\timers.c
+- project_root\FreeRTOSConfig.h
+### Modify FreeRTOSConfig.h
+You can find the line that includes a device specific header in FreeRTOSConfig.h.
+```c
+#include <p33FJ256GP710.h>
+```
+In these instructions, we change the line like this:
+```c
+#include <p33FJ128MC804.h>
+```
 ### Build project
